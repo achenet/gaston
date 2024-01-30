@@ -2,8 +2,8 @@ package generate
 
 import "strings"
 
-// generate a transition matrix from some text
-func generate(text string) [][]float32 {
+// Generate a transition matrix from some text
+func Generate(text string) [][]float32 {
 	text = preProcess(text)
 	out := make([][]float32, 26)
 	for i := range out {
@@ -54,7 +54,7 @@ func preProcess(text string) string {
 	return text
 }
 
-func findFrequencies(text string) []float32 {
+func FindFrequencies(text string) []float32 {
 	text = preProcess(text)
 	out := make([]float32, 26)
 	for _, r := range text {
