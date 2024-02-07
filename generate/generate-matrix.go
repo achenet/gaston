@@ -5,6 +5,9 @@ import "strings"
 // Generate a transition matrix from some text
 func Generate(text string) [][]float32 {
 	text = preProcess(text)
+	if len(text) == 0 {
+		return nil
+	}
 	out := make([][]float32, 26)
 	for i := range out {
 		out[i] = make([]float32, 26)
@@ -15,7 +18,7 @@ func Generate(text string) [][]float32 {
 		out[numberOf[runes[i]]][numberOf[runes[i+1]]] += 1
 		i += 1
 	}
-	l := len([]rune(text))
+	l := len([]rune(text)) - 1
 	for _, row := range out {
 		for i := range row {
 			row[i] = row[i] / float32(l)
