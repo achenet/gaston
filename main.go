@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -15,6 +16,8 @@ func main() {
 		log.Fatalf("could not get text from input file: %s", err.Error())
 	}
 	transitionMatrix := generate.Generate(text)
+	frequencies := generate.FindFrequencies(text)
+	fmt.Println(generate.NewName(transitionMatrix, frequencies))
 }
 
 func getTextFromInputFile() (string, error) {
