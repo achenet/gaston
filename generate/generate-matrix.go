@@ -2,8 +2,8 @@ package generate
 
 import "strings"
 
-// Generate a transition matrix from some text
-func Generate(text string) [][]float32 {
+// GenerateTransitionmatrix a transition matrix from some text
+func GenerateTransitionmatrix(text string) [][]float32 {
 	text = preProcess(text)
 	if len(text) == 0 {
 		return nil

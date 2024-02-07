@@ -15,7 +15,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("could not get text from input file: %s", err.Error())
 	}
-	transitionMatrix := generate.Generate(text)
+	transitionMatrix := generate.GenerateTransitionmatrix(text)
 	frequencies := generate.FindFrequencies(text)
 	fmt.Println(generate.NewName(transitionMatrix, frequencies))
 }
